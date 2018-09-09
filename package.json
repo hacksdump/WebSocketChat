@@ -1,0 +1,25 @@
+{
+  "name": "websocket-chat",
+  "version": "1.0.0",
+  "description": "Simple chat built upon websockets and nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Sample test\"",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "chat",
+    "socket"
+  ],
+  "author": "hacksdump",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13",
+    "websocket": "^1.0.26",
+    "ws": "^6.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
