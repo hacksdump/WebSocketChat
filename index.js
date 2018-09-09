@@ -56,7 +56,7 @@ wss.on('request', function (request) {
     }
     // User sent some message
     connection.on('message', function(message) {
-        if (message.type === 'utf8') {
+        if (message.type === 'utf8' && message.utf8Data) {
             if (userName === false) {
                 userName = htmlEntities(message.utf8Data);
                 userColor = colors.shift();
