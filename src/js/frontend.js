@@ -12,7 +12,8 @@ if (!window.WebSocket) {
     input.style.display = "none";
 }
 else {
-    let connection = new WebSocket('ws://127.0.0.1:3000');
+    console.log(window.location.host);
+    let connection = new WebSocket("ws://" + window.location.host);
     connection.addEventListener('open', function () {
         input.disabled = false;
         status.innerText = "Choose name:";
