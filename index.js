@@ -1,10 +1,10 @@
 "use strict";
-
 // Process title for 'ps' or 'htop'
 process.title = 'node-chat';
 
 const PORT = 3000;
 
+const mongo = require('./src/js/server/mongo_interact');
 const ws = require(`websocket`);
 const WebSocketServer = ws.server;
 //const ws = require('ws');
@@ -48,6 +48,7 @@ wss.on('request', function (request) {
     let userColor = false;
 
     console.log(new Date() + " Connection accepted");
+
     if (history.length > 0) {
         connection.sendUTF(JSON.stringify({
             type: 'history',
@@ -75,6 +76,7 @@ wss.on('request', function (request) {
                     color: userColor
                 };
                 history.push(messageObject);
+                mongo(messageObject);
                 history = history.slice(-100);
 
                 let newMessage = JSON.stringify({
